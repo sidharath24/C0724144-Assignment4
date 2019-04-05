@@ -47,6 +47,8 @@ namespace C0724144_Assignment4
                 counter = File.ReadLines("Beowulf.txt").Count();
 
                 Console.WriteLine("\n\n\nThe file has "+counter+" lines");
+
+
                 
             }
         }
