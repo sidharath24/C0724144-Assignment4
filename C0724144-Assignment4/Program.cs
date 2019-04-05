@@ -43,7 +43,11 @@ namespace C0724144_Assignment4
                     Beowulf.Add(ln);
                 }
                 file.Close();
-                Console.WriteLine("File has {contour) lines.");
+
+                counter = File.ReadLines("Beowulf.txt").Count();
+
+                Console.WriteLine("\n\n\nThe file has "+counter+" lines");
+                
             }
         }
         public int FindNumberOfBlankSpaces(string line)
