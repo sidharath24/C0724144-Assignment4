@@ -33,6 +33,7 @@ namespace C0724144_Assignment4
             p.Letters();
             Console.ReadLine();
         }
+
         public void Run()
         {
             this.ReadTextFiles();
