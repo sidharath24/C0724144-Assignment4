@@ -19,11 +19,16 @@ namespace C0724144_Assignment4
         static void Main(string[] args)
         {
             Program p = new Program();
-           
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
             p.ReadTextFiles();
-            p.Beowulf = new ArrayList();
+            Console.WriteLine("\n");
+            
             p.TotalWords();
+            Console.WriteLine("\n");
             p.Both();
+            Console.WriteLine("\n");
+            p.NoFare();
             Console.ReadLine();
         }
         public void Run()
@@ -69,7 +74,6 @@ namespace C0724144_Assignment4
 
             StreamReader reader = new StreamReader("Beowulf.txt");
             string script = reader.ReadToEnd();
-
             var text = script.Trim();
             long wordCount = 0; 
              int index = 0;
@@ -78,15 +82,12 @@ namespace C0724144_Assignment4
             {
                 // check if current char is part of a word
                 while (index < text.Length && !char.IsWhiteSpace(text[index]))
-                    index++;
-
+                index++;
                 wordCount++;
-
                 // skip whitespace until next word
                 while (index < text.Length && char.IsWhiteSpace(text[index]))
                     index++;
             }
-
             Console.WriteLine("The file has "+wordCount+" words");
             return wordCount;
             
@@ -101,12 +102,21 @@ namespace C0724144_Assignment4
                 {
                     Console.WriteLine("The lines that contain words sea and fare are "+a);
                 }
-
             }
         }
 
-
-
+        public void NoFare()
+        {
+            int x = 0;
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                x++;
+                if (line.Contains("fare") && (!line.Contains("war")))
+                {
+                    Console.WriteLine("Lines in which fare comes and war does not are "+x);
+                }
+            }
+        }
 
 
 
