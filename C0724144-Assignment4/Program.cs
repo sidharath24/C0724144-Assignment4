@@ -14,7 +14,7 @@ namespace C0724144_Assignment4
     class Program
     {
         ArrayList Beowulf;
-        private char[] separator;
+        
 
         static void Main(string[] args)
         {
@@ -23,6 +23,7 @@ namespace C0724144_Assignment4
             p.ReadTextFiles();
             p.Beowulf = new ArrayList();
             p.TotalWords();
+            p.Both();
             Console.ReadLine();
         }
         public void Run()
@@ -34,12 +35,10 @@ namespace C0724144_Assignment4
         {
             // Read file using StreamReader. Read file line by line
             using (StreamReader file = new StreamReader("Beowulf.txt"))
-
             {
-
                 int counter = 0;
                 string ln;
-               string words;
+             
                 while ((ln = file.ReadLine()) != null)
                 {
                     Console.WriteLine(ln);
@@ -64,8 +63,7 @@ namespace C0724144_Assignment4
             return countSpaces;
 
         }
-
-
+        
         public long TotalWords()
         {
 
@@ -89,10 +87,31 @@ namespace C0724144_Assignment4
                     index++;
             }
 
-            Console.WriteLine("The file has "+wordCount);
+            Console.WriteLine("The file has "+wordCount+" words");
             return wordCount;
             
         }
+        public void Both()
+        {
+            int a = 0;
+            foreach (var lines in File.ReadAllLines("Beowulf.txt"))
+            {
+                a++;
+                if (lines.Contains("sea") && lines.Contains("fare"))
+                {
+                    Console.WriteLine("The lines that contain words sea and fare are "+a);
+                }
+
+            }
+        }
+
+
+
+
+
 
     }
-}
+
+        
+    }
+
